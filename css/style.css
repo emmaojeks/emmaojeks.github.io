@@ -1,5 +1,300 @@
+@import url(font-awesome.css);
+.full-background{
+    background-image: url('../images/bg1.jpeg');
+    background-repeat: no-repeat;
+}
 .viewbtn{
 	background-color: #2f78b0;
     border: none;
     padding: 5px;
+}
+
+/*------------------------------ SKILLS STYLE -------------------------------------*/
+.tm-skills{
+    margin: 20px 0;
+    padding: 20px 0;
+    background: #f8f8f8;
+}
+
+.skills-container{
+    position: relative;
+    /*display: flex;*/
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills-container .skills-card{
+    position: relative;
+    width: 220px;
+    height: 220px;
+    background: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.skills-container .skills-card .percent{
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.skills-container .skills-card .percent svg{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transform: rotate(270deg);
+}
+
+.skills-container .skills-card .percent svg circle{
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+    stroke-width: 2;
+    stroke: #191919;
+    transform: translate(5px, 5px);
+}
+
+.skills-container .skills-card .percent svg circle:nth-child(2){
+    stroke: var(--clr);
+    stroke-dasharray: 440;
+    stroke-dashoffset: calc(440 - (440 * var(--num)) / 100);
+    opacity: 0;
+    animation: fadeIn 1s linear forwards;
+    animation-delay: 2.5s;
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.dot{
+    position: absolute;
+    z-index: 10;
+    inset: 5px;
+    /*360deg / 100 = 3.6*/
+    animation: animateDot 2s linear forwards;
+}
+
+@keyframes animateDot{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(calc(3.6deg * var(--num)));
+    }
+}
+
+.dot::before{
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background: var(--clr);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--clr), 0 0 30px var(--clr);
+}
+
+.number{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    animation: fadeIn 1s linear forwards;
+    animation-delay: 2.5s;
+}
+
+.number h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+.number h2 span{
+    font-weight: 300;
+    color: #fff;
+    font-size: 0.5em;
+}
+
+.number p{
+    font-weight: 300;
+    font-size: 0.75em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+}
+
+.lan-img{
+    width: 100px;
+    height: 100px;
+}
+
+.lan-img img{
+    width: inherit;
+    height: inherit;
+    object-fit: contain;
+}
+
+.skills-container .skills-card:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), -2px -4px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.prevBtn, .nextBtn {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: red;
+    font-weight: bold;
+    font-size: 50px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+    transform: translateY(-50%);
+}
+
+.nextBtn {
+    right: 0;
+    margin-right: -10px;
+    border-radius: 3px 0 0 3px;
+    z-index: 20;
+}
+
+.prevBtn {
+    left: 0;
+    margin-left: -20px;
+}
+/*------------------------------ SKILLS STYLES ENDS -------------------------------------*/
+
+/*------------------------------ GALLERY SECTION -------------------------------------*/
+.thumb img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/*------------------------------ GALLERY SECTION ENDS -------------------------------------*/
+
+/*------------------------------ TESTIMONIALS SECTION -------------------------------------*/
+.testimony{
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    color: #9e9e9e;
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    margin: 35px 10px 10px;
+    max-width: 310px;
+    min-width: 250px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+    border-top: 5px solid #297aff;
+}
+
+.testimony *,
+.testimony *:before{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.1s ease-out;
+    transition: all 0.1s ease-out;
+}
+
+.testimony figcaption{
+    padding: 13% 10% 12%;
+}
+
+.testimony figcaption:before{
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    color: #2979ff;
+    content: "\f10e";
+    font-family: 'FontAwesome';
+    font-size: 32px;
+    font-style: normal;
+    left: 50%;
+    line-height: 60px;
+    position: absolute;
+    top: -30px;
+    width: 60px;
+}
+
+.testimony h3{
+    color: #3c3c3c;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 24px;
+    margin: 10px 0 5px;
+}
+
+.testimony h4{
+    font-weight: 400;
+    margin: 0;
+    opacity: 0.5;
+}
+
+.testimony blockquote{
+    font-style: italic;
+    font-weight: 300;
+    margin: 0 0 20px;
+}
+
+.owl-carousel.owl-drag .owl-item {
+    justify-content: center;
+}
+
+.tests-section{
+    margin: auto;
+}
+/*------------------------------ TESTIMONIALS SECTION ENDS --------------------------------*/
+
+/*------------------------------ RESPONSIVENESS -------------------------------------*/
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .prevBtn, .nextBtn{
+        display: none;
+    }
+    .owl-carousel.owl-drag .owl-item {
+        justify-content: center;
+    }
+    .full-background{
+        background-image: url('../images/programmer-man-hand-typing-website.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .testimony {
+        width: -webkit-fill-available;
+    }
+}
+
+@media only screen and (min-width: 1600px){
+    .nextBtn {
+        margin-right: -55px;
+    }
+    .prevBtn {
+        margin-left: -65px;
+    }
 }
