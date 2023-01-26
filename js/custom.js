@@ -108,8 +108,8 @@
         }
         if ($('.gallery-list').length) {
             $('.gallery-list').owlCarousel({
-                loop: false,
-                nav: false,
+                loop: true,
+                nav: true,
                 dots: true,
                 items: 3,
                 autoplay: true,
@@ -133,21 +133,35 @@
         }
         if ($('.testimonials-slider').length) {
             $('.testimonials-slider').owlCarousel({
-                loop: true,
+                loop: false,
                 nav: false,
                 dots: true,
-                items: 1,
-                margin: 30,
-                autoplay: true,
+                items: 3,
+                // margin: 10,
+                // autoplay: true,
                 smartSpeed: 700,
                 autoplayTimeout: 6000,
                 responsive: {
                     0: {
                         items: 1,
-                        margin: 0
+                        margin: 0,
+                        loop: true,
+                        autoplay: true,
+                        animateOut: 'slideOutDown',
+                        animateIn: 'flipInX'
+                    },
+                    480 : {
+                        items: 1,
+                        loop: true,
+                        autoplay: true
                     },
                     768: {
                         items: 1
+                        // loop: true,
+                        // autoplay: true
+                    },
+                    1000 : {
+                        items: 3
                     }
                 }
             });
